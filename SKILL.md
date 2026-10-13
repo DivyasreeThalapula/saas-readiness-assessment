@@ -118,6 +118,7 @@ Use the appropriate reference documents:
 - `references/functional-testing.md`
 - `references/compliance-assessment.md`
 - `references/assessment-methodology.md`
+- `references/operational-readiness.md`
 
 Use `references/severity-classification.md` to prioritize findings.
 
@@ -213,9 +214,15 @@ Use:
 - Medium
 - Low
 - Informational
-- Pending Assessment
 
-Base severity on evidence, potential impact, exposure, and relevant circumstances.
+Base severity on impact, exploitability, exposure, and relevant circumstances.
+
+For unverified findings, record a provisional severity separately from the
+verification status. Explain what impact is demonstrated and what remains
+potential or unconfirmed.
+
+Use Needs Investigation for a reported issue whose evidence has not yet
+been sufficiently reviewed. Do not use Pending Assessment as a severity level.
 
 Keep severity separate from remediation priority.
 
@@ -225,24 +232,62 @@ Do not lower a finding's severity merely because it is inconvenient to fix.
 
 ### Stage 7: Evaluate Launch Readiness
 
-Review the complete assessment record.
+Review the complete assessment record and evaluate readiness using verified
+evidence, unresolved findings, assessment coverage, and agreed launch criteria.
 
 Consider:
-
 - Critical and High findings.
 - Important unresolved functional defects.
 - Authentication and authorization weaknesses.
 - Privacy and compliance concerns.
 - Operational preparedness.
-- Unverified high-risk areas.
-- Applicable launch requirements.
+- Untested high-risk areas.
+- Mandatory launch requirements.
 - Residual risks and documented mitigations.
+- Explicit risk acceptance by authorized stakeholders, where applicable.
 
-Identify which issues should be resolved before launch and which require stakeholder review.
+### Readiness Outcomes
 
-Do not use a simple count of passing tests as proof that a product is ready.
+Use exactly one overall readiness outcome:
 
-Do not independently authorize a launch or accept organizational risk.
+- Ready for Launch Consideration: Sufficient evidence is available for the
+  agreed assessment scope, mandatory criteria are met, and no unresolved
+  blocking issues have been identified. This is not launch approval.
+- Conditionally Ready: Outstanding issues or residual risks remain, but
+  documented conditions and mitigation plans have been identified for
+  stakeholder review. This outcome does not constitute risk acceptance.
+- Not Ready: A confirmed blocking issue or unmet mandatory requirement
+  prevents a positive readiness outcome.
+- Insufficient Evidence: Available evidence is insufficient to determine
+  readiness reliably.
+
+### Decision Rules
+
+- A confirmed unresolved Critical finding results in Not Ready.
+- Evaluate unresolved High findings against their demonstrated impact,
+  exposure, agreed launch criteria, and potential to block launch.
+- Untested high-risk areas prevent an unqualified positive readiness outcome.
+- Missing mandatory evidence normally results in Insufficient Evidence,
+  unless a confirmed blocking issue independently requires Not Ready.
+- A developer's statement that an issue is fixed does not establish
+  resolution. Retest and record sufficient evidence before marking it Resolved.
+- Do not treat a finding as confirmed solely because it was reported.
+- Do not treat documented procedures as successfully tested procedures.
+- Do not use a passing-test count alone to determine readiness.
+- Record the rationale, outstanding conditions, and unresolved risks.
+
+### Report Status Versus Readiness Outcome
+
+Keep report status separate from product readiness:
+
+- Draft: The assessment report is still being prepared.
+- Ready for Review: The report is ready for stakeholder review.
+
+Report status does not determine readiness. A report marked Ready for Review
+must still have one of the four readiness outcomes above.
+
+Only authorized stakeholders can make the final launch decision and formally
+accept organizational risks.
 
 ### Stage 8: Generate the Final Report
 
@@ -288,6 +333,16 @@ Use consistent test statuses:
 
 Never convert a proposed test into a passing result without executing it and evaluating the evidence.
 
+### Evidence and Status Consistency
+
+- Distinguish tester-reported observations from independently verified findings.
+- Use `Needs Investigation` when a potentially significant issue has been reported but sufficient evidence has not been reviewed.
+- Use `Fail` only when the assessment check has sufficient evidence demonstrating that the expected control or behaviour failed.
+- Record the evidence source and verification status for every finding.
+- Do not mark a test as passed or failed solely because a finding was mentioned in a scenario.
+- Keep provisional severity separate from verification status.
+- Ensure that finding statuses remain consistent across individual reports, assessment ledgers, and the final readiness report.
+
 ## 5. Reference Loading Rules
 
 Use progressive disclosure. Read only the supporting material required for the current task.
@@ -300,6 +355,8 @@ Use progressive disclosure. Read only the supporting material required for the c
 - For individual test records, use `assets/test-case-template.md`.
 - For security finding reports, use `assets/vulnerability-report-template.md`.
 - For the final readiness report, use `assets/final-assessment-template.md`.
+- For monitoring, backups, recovery, deployment, incident response, and other
+  operational controls, consult `references/operational-readiness.md`.
 
 Do not reproduce every reference document in every response.
 

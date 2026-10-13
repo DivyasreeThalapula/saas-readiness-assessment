@@ -40,7 +40,11 @@ Examples may include:
 
 These examples are illustrative. A finding should not be classified as Critical merely because it resembles an example; the actual evidence and context must support the rating.
 
-Recommended response: Escalate immediately to the responsible security and engineering teams. Pause the affected launch or functionality when the risk warrants it. Do not launch with an unresolved Critical issue unless an explicitly authorized risk decision and appropriate safeguards have been established.
+Recommended response: Escalate immediately to the responsible security and
+engineering teams. A confirmed, unresolved Critical finding results in a
+Not Ready readiness outcome. Apply appropriate containment and remediation
+measures. Any risk acceptance must follow the organization's formal
+authorization process and applicable obligations.
 
 ### High
 
@@ -235,6 +239,29 @@ Each finding should include:
 
 Keep observed facts separate from assumptions and recommendations.
 
+### Verification and Finding Status
+
+Keep severity, verification status, and remediation lifecycle status separate.
+
+Verification status:
+- Unverified: The available evidence has not yet been sufficiently reviewed.
+- Verified: Sufficient evidence supports the observed finding.
+
+Finding lifecycle status:
+- Open: The finding requires investigation or remediation.
+- In Progress: Remediation is underway.
+- Awaiting Retest: A fix has been reported but has not yet been verified.
+- Resolved: Retesting confirms that the reported issue has been addressed.
+- Rejected: Investigation establishes that the report is not a valid finding.
+  Record the supporting rationale.
+
+Use Needs Investigation as the test status when a reported issue lacks
+sufficient evidence to determine the outcome.
+
+An unverified finding may have a provisional severity. Do not present it as
+a confirmed vulnerability or treat a developer's claim as proof of resolution.
+Record the evidence source and verification status in the finding report.
+
 ## 11. Retesting and Closure
 
 After a fix is reported:
@@ -248,7 +275,9 @@ After a fix is reported:
 
 A finding should not be marked Resolved solely because a developer reports that a fix has been implemented.
 
-If retesting is unavailable, record the finding as awaiting verification rather than claiming it has been resolved.
+If a fix has been reported but retesting has not been completed, use
+Awaiting Retest. Do not mark the finding Resolved until sufficient retest
+evidence confirms that the issue has been addressed.
 
 ## 12. Risk Acceptance
 

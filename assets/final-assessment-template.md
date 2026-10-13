@@ -50,18 +50,19 @@ Do not infer coverage from the existence of documentation alone.
 
 ## 4. Findings Summary
 
-| Severity | Number of Findings |
-|---|---:|
-| Critical | 0 |
-| High | 0 |
-| Medium | 0 |
-| Low | 0 |
-| Informational | 0 |
-| Pending Assessment | 0 |
+| Severity | Confirmed Findings | Unverified Findings |
+|---|---:|---:|
+| Critical | 0 | 0 |
+| High | 0 | 0 |
+| Medium | 0 | 0 |
+| Low | 0 | 0 |
+| Informational | 0 | 0 |
 
-Update the counts using the actual findings.
+Update the counts from the assessment records. Keep provisional severity
+separate from verification status.
 
-Do not count the same finding multiple times unless the reporting method explicitly requires it.
+Count each finding once per applicable reporting category. Do not count
+unverified findings as confirmed vulnerabilities.
 
 ## 5. Critical and High-Priority Findings
 
@@ -170,27 +171,54 @@ Document:
 
 ## 13. Overall Assessment
 
-Choose the most appropriate status:
+### Report Status
 
-- Ready for Review: The assessment report is prepared for stakeholder review; this does not mean the product is approved for launch.
-- Ready for Launch Consideration: The available evidence supports considering launch, subject to the documented scope, requirements, and residual risks.
-- Conditionally Ready: Launch consideration depends on clearly documented conditions being satisfied.
-- Not Ready: Significant unresolved issues or unmet requirements prevent a positive launch recommendation.
-- Insufficient Evidence: The assessment is too incomplete to support a reliable recommendation.
+Choose one:
 
-### Rationale
+- Draft: The report is still being prepared.
+- Ready for Review: The report is ready for stakeholder review.
 
-Explain the selected status using the evidence, unresolved findings, scope, and limitations.
+### Overall Readiness Outcome
+
+Choose exactly one:
+
+- Ready for Launch Consideration: Sufficient evidence supports the agreed
+  assessment scope, mandatory criteria are met, and no unresolved blocking
+  issues have been identified. This is not launch approval.
+- Conditionally Ready: Outstanding issues or residual risks remain, and
+  documented conditions have been identified for stakeholder review.
+- Not Ready: A confirmed blocking issue or unmet mandatory requirement
+  prevents a positive readiness outcome.
+- Insufficient Evidence: Available evidence is insufficient to determine
+  readiness reliably.
+
+### Decision Rationale
+
+Explain the selected readiness outcome using assessment evidence,
+unresolved findings, agreed launch criteria, and limitations.
+
+A confirmed unresolved Critical finding results in Not Ready. Evaluate
+unresolved High findings against their impact, exposure, and agreed criteria.
+
+Untested high-risk areas prevent an unqualified positive readiness outcome.
+Missing mandatory evidence normally results in Insufficient Evidence,
+unless a confirmed blocking issue independently requires Not Ready.
+
+A developer's statement that an issue is fixed does not establish resolution.
+Retesting and sufficient evidence are required before marking it Resolved.
 
 ### Required Conditions
 
-List outstanding actions or approvals required before launch consideration.
+List outstanding actions, verification activities, and stakeholder decisions
+required before launch consideration.
 
 ### Risk Acceptance
 
-Document any formally accepted residual risks, including the authorized decision-maker and relevant conditions, if known.
+Document formally accepted residual risks, including the authorized
+decision-maker and applicable conditions, if known.
 
-An assessment recommendation does not itself authorize a launch or accept risk.
+An assessment recommendation does not itself authorize a launch or accept
+organizational risk.
 
 ## 14. Final Disclaimer
 

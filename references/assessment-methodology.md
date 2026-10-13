@@ -209,12 +209,36 @@ Activities:
 - Provide a recommendation supported by the available evidence.
 
 Possible outcomes:
-- Ready: Required acceptance criteria have been met, with no unresolved blocking issues identified within the assessment scope.
-- Ready with Conditions: Launch may proceed only if explicitly defined conditions and risk-acceptance requirements are satisfied.
-- Not Ready: One or more blocking issues or unmet mandatory requirements prevent launch.
-- Inconclusive: Insufficient evidence or incomplete assessment prevents a reliable readiness decision.
 
-The final launch decision belongs to the authorized product owner or responsible decision-makers, not to the assessment tool alone.
+- Ready for Launch Consideration: Sufficient evidence supports the agreed
+  assessment scope, mandatory criteria are met, and no unresolved blocking
+  issues have been identified. This is not launch approval.
+
+- Conditionally Ready: Outstanding issues or residual risks remain, and
+  documented conditions have been identified for stakeholder review.
+  This outcome does not itself constitute risk acceptance.
+
+- Not Ready: A confirmed blocking issue or unmet mandatory requirement
+  prevents a positive readiness outcome.
+
+- Insufficient Evidence: Available evidence is insufficient to determine
+  readiness reliably.
+
+Decision Rules:
+
+- A confirmed unresolved Critical finding results in Not Ready.
+- Evaluate unresolved High findings against their impact, exposure,
+  agreed launch criteria, and potential to block launch.
+- Untested high-risk areas prevent an unqualified positive readiness outcome.
+- Missing mandatory evidence normally results in Insufficient Evidence,
+  unless a confirmed blocking issue independently requires Not Ready.
+- A reported issue must not be treated as confirmed without sufficient evidence.
+- A developer's statement that an issue is fixed does not establish resolution.
+  Retesting and sufficient evidence are required before marking it Resolved.
+- Record the rationale, unresolved risks, limitations, and required actions.
+
+The final launch decision belongs to the authorized product owner or
+responsible decision-makers, not to the assessment tool alone.
 
 Expected output:
 - Consolidated assessment report
@@ -269,7 +293,7 @@ Severity Levels
 
 | Severity | Description | Typical Response |
 |---|---|---|
-| Critical | Catastrophic potential impact, such as a major compromise of sensitive data or critical systems. | Escalate immediately. Block launch until resolved or formally addressed. |
+| Critical | Catastrophic potential impact, such as a major compromise of sensitive data or critical systems. | Escalate immediately. A confirmed, unresolved Critical finding results in Not Ready. |
 | High | Significant security, privacy, or business impact. | Prioritize remediation before launch unless an authorized risk decision permits otherwise. |
 | Medium | Meaningful but more limited impact. | Schedule remediation according to risk and launch requirements. |
 | Low | Minor weakness with limited impact. | Address through planned improvements. |

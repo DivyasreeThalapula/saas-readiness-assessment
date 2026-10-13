@@ -1,42 +1,59 @@
-# Test Case Template
+# SaaS Assessment Test Case
 
-## Test Case Information
+## 1. Test Identification
 
-- Test Case ID:
-- Test Title:
-- Category: Security / Functional / Privacy / Compliance / Other
-- Feature or Component:
+- Test ID:
+- Assessment Area:
+- Product / Component:
+- Product Version / Build:
 - Environment:
-- Test Date:
-- Tested By:
+- Tester:
+- Date:
+- Related Finding ID, if applicable:
 
-## Test Objective
+## 2. Test Objective
 
-Describe what this test is intended to verify.
+Describe what the test is intended to verify.
 
-## Preconditions
+## 3. Risk and Scope
 
-List the conditions that must be satisfied before testing.
+- Risk Addressed:
+- Priority:
+- Applicable User Role:
+- Tenant / Organization Context, if applicable:
+- Preconditions:
+- Required Permissions:
+- Authorization Confirmed: Yes / No / Pending
+- Constraints or Exclusions:
 
-## User Role
+Do not execute a test if the required authorization is unclear.
 
-Specify the role or permission level required for this test.
+## 4. Planned Test Procedure
 
-## Test Steps
+Record the proposed steps before execution.
 
 1.
 2.
 3.
 
-## Expected Result
+- Expected Outcome:
+- Evidence Required:
+- Planned Tools, if applicable:
 
-Describe the expected behavior.
+## 5. Execution Record
 
-## Actual Result
+- Execution Attempted: Yes / No
+- Actual Execution Date:
+- Actual Steps Performed:
+- Actual Outcome:
+- Evidence Source:
+- Evidence Reference:
+- Evidence Reviewed: Yes / No
+- Verification Notes:
 
-Record the observed behavior.
+Do not present proposed steps as executed steps.
 
-## Status
+## 6. Test Status
 
 Choose one:
 
@@ -46,22 +63,31 @@ Choose one:
 - Not Tested
 - Not Applicable
 
-## Evidence
-
-Record relevant screenshots, logs, response details, or other evidence.
-
-Do not include passwords, access tokens, or unnecessary personal information.
-
-## Impact and Notes
-
-- Potential Impact:
-- Related Finding ID:
+- Status Rationale:
 - Limitations:
-- Additional Notes:
+- Not Applicable Justification, if relevant:
 
-## Retest
+A Pass requires sufficient reviewed evidence that the expected outcome was met.
+A Fail requires sufficient evidence that the expected outcome was not met.
+A reported observation without sufficient reviewed evidence must not be
+marked Pass or Fail.
 
-- Retested: Yes / No
-- Retest Date:
+## 7. Finding and Remediation
+
+- Related Finding ID:
+- Finding Verification Status: Unverified / Verified
+- Provisional Severity:
+- Confirmed Impact:
+- Potential Impact:
+- Recommended Remediation:
+- Responsible Owner, if known:
+- Remediation Status:
+- Retest Required: Yes / No
 - Retest Result:
 - Retest Evidence:
+
+Do not mark an issue Resolved solely because a fix was reported.
+
+## 8. Review Notes
+
+Record assumptions, additional observations, dependencies, and follow-up actions.
